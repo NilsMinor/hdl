@@ -82,6 +82,14 @@ proc adi_project_xilinx {project_name {mode 0}} {
     set sys_zynq 2
   }
 
+  ##### DAQLES #########################################################################################
+    if [regexp "_krm3z30$" $project_name] {
+    set p_device "xc7z030ffg676-1"
+    set p_board "not-applicable"
+    set sys_zynq 1
+  } 
+  ##############################################################################################################
+
   set VIVADO_VERSION [version -short]
   if {[string compare $VIVADO_VERSION $REQUIRED_VIVADO_VERSION] != 0} {
     puts -nonewline "CRITICAL WARNING: vivado version mismatch; "
